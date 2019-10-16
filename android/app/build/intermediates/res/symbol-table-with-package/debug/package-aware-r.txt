@@ -440,6 +440,7 @@ color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
+color black
 color black_overlay
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
@@ -456,10 +457,13 @@ color dim_foreground_material_dark
 color dim_foreground_material_light
 color error_color_material_dark
 color error_color_material_light
+color filter_elected
+color font_bar_color
 color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color jits_color
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -498,6 +502,7 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color tooltip_background_dark
 color tooltip_background_light
+color yellow
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -869,6 +874,7 @@ id alertTitle
 id all
 id always
 id are_btn_attach_video
+id are_editor
 id are_fontsize_preview
 id are_fontsize_seekbar
 id are_image_select_from_internet
@@ -907,6 +913,7 @@ id content
 id contentPanel
 id custom
 id customPanel
+id dataBinding
 id decor_content_parent
 id decorated_disabled
 id default_activity_button
@@ -953,6 +960,7 @@ id left
 id line1
 id line3
 id linearText
+id linear_bottom
 id listMode
 id list_item
 id match_parent
@@ -968,6 +976,8 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id onAttachStateChangeListener
+id onDateChanged
 id other_months
 id out_of_range
 id packed
@@ -1004,7 +1014,6 @@ id rteEmojiPanel
 id rteEmojiPanelGridView
 id rteFontColor
 id rteFontface
-id rteFontsize
 id rteHr
 id rteIndentLeft
 id rteIndentRight
@@ -1061,6 +1070,7 @@ id text
 id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
+id textWatcher
 id thursday
 id time
 id title
@@ -1127,6 +1137,7 @@ layout are_image_select
 layout are_link_insert
 layout are_toolbar
 layout dev_loading_view
+layout edt_text_editor
 layout fps_view
 layout notification_action
 layout notification_action_tombstone

@@ -8,13 +8,13 @@ import android.graphics.Color;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.Spanned;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.RelativeLayout;
@@ -37,6 +37,21 @@ public class AREditor extends RelativeLayout {
     String TAG = AREditor.class.getSimpleName();
 
     public Activity mActivityContext;
+    private ARE_Toolbar.DoneListener doneListener;
+    private TouchEventListener touchEventListener;
+    private onEditChangeListener  onEditChangeListener;
+
+    public void doneListener(ARE_Toolbar.DoneListener doneListener){
+        this.doneListener = doneListener;
+        this.mToolbar.setDoneListener(doneListener);
+    }
+    public void touchListener(TouchEventListener touchEventListener){
+        this.touchEventListener= touchEventListener;
+
+    }
+    public void onTextChangeListener(onEditChangeListener onEditChangeListener){
+        this.onEditChangeListener= onEditChangeListener;
+    }
     /**
      * The toolbar alignment.
      */
@@ -76,12 +91,12 @@ public class AREditor extends RelativeLayout {
     /**
      * Context.
      */
-    private Context mContext;
+    private Activity mContext;
 
     /**
      * The toolbar.
      */
-    private ARE_Toolbar mToolbar;
+    public ARE_Toolbar mToolbar;
 
     /**
      * The scroll view out of AREditText.
@@ -119,7 +134,7 @@ public class AREditor extends RelativeLayout {
      *
      * @param context
      */
-    public AREditor(Context context) {
+    public AREditor(Activity context) {
         this(context, null);
     }
 
@@ -129,7 +144,7 @@ public class AREditor extends RelativeLayout {
      * @param context
      * @param attrs
      */
-    public AREditor(Context context, AttributeSet attrs) {
+    public AREditor(Activity context, AttributeSet attrs) {
         this(context, attrs, 0);
 //        this.mToolbar.setDoneListener(mDoneListener);
     }
@@ -141,7 +156,7 @@ public class AREditor extends RelativeLayout {
      * @param attrs
      * @param defStyleAttr
      */
-    public AREditor(Context context, AttributeSet attrs, int defStyleAttr) {
+    public AREditor(Activity context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.mContext = context;
 //        this.mToolbar.setDoneListener(mDoneListener);
@@ -167,14 +182,6 @@ public class AREditor extends RelativeLayout {
 
     private void initGlobal() {
         this.mToolbar = new ARE_Toolbar(mContext);
-        this.mToolbar.setDoneListener(new ARE_Toolbar.DoneListener() {
-            @Override
-            public void doneClick() {
-
-                hideKeyboard(mActivityContext);
-                Log.d(TAG, "doneClick: "+getHtml());
-            }
-        });
         this.mToolbar.setId(R.id.are_toolbar);
 
         this.mAreScrollView = new ScrollView(mContext);
@@ -200,6 +207,9 @@ public class AREditor extends RelativeLayout {
 
     private void addToolbar(boolean isBelow, int belowId, boolean isFull) {
         LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        if (Util.isTablet(mContext)){
+            layoutParams.setMargins(0,0,0,-25);
+        }else layoutParams.setMargins(0,0,0,-35);
 
         if (mExpandMode == ExpandMode.FULL) {
             int ruleVerb = mToolbarAlignment == ToolbarAlignment.BOTTOM ? RelativeLayout.ALIGN_PARENT_BOTTOM : RelativeLayout.ALIGN_PARENT_TOP;
@@ -209,76 +219,71 @@ public class AREditor extends RelativeLayout {
         }
 
         mToolbar.setLayoutParams(layoutParams);
+
         this.addView(this.mToolbar);
 
-        if (mHideToolbar) {
-            mToolbar.setVisibility(View.GONE);
-        } else {
-            mToolbar.setVisibility(View.VISIBLE);
-        }
+//        if (mHideToolbar) {
+//        } else {
+//            mToolbar.setVisibility(View.VISIBLE);
+//        }
     }
 
     private void addEditText(boolean isBelow, int belowId) {
-        int height = mExpandMode == ExpandMode.FULL ? LayoutParams.MATCH_PARENT : LayoutParams.WRAP_CONTENT;
+        int height = mExpandMode == ExpandMode.FULL ? LayoutParams.MATCH_PARENT : LayoutParams.MATCH_PARENT;
         int lines = mExpandMode == ExpandMode.FULL ? -1 : 3;
-
-        LayoutParams scrollViewLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        mContext.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int heightPixels = (displayMetrics.heightPixels)/2;
+        int widthPixels = displayMetrics.widthPixels;
+        LayoutParams scrollViewLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT,heightPixels);
         if (isBelow) scrollViewLayoutParams.addRule(BELOW, belowId);
-
+        //scrollViewLayoutParams.setMargins(0,0,0,10);
         mAreScrollView.setLayoutParams(scrollViewLayoutParams);
-
         mAre = new AREditText(mContext);
-        if (lines > 0) {
-            mAre.setMaxLines(lines);
-            mAre.setImeOptions(EditorInfo.IME_ACTION_DONE | EditorInfo.IME_FLAG_NO_EXTRACT_UI | EditorInfo.IME_FLAG_NO_FULLSCREEN);
-        } else
-            mAre.setImeOptions(EditorInfo.IME_ACTION_DONE | EditorInfo.IME_FLAG_NO_EXTRACT_UI | EditorInfo.IME_FLAG_NO_FULLSCREEN);
-
-//        mAre.setOnTouchListener(new OnTouchListener() {
+        if (lines > 0) mAre.setMaxLines(lines);
+        mAre.setImeOptions(EditorInfo.IME_ACTION_DONE | EditorInfo.IME_FLAG_NO_EXTRACT_UI | EditorInfo.IME_FLAG_NO_FULLSCREEN);
+        LayoutParams editTextLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT,mAre.getHeight());
+        mAre.requestFocus();
+        InputMethodManager imm = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
+        mAreScrollView.addView(mAre, editTextLayoutParams);
+//        mAre.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
 //            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent) {
-//                if (MotionEvent.ACTION_UP == motionEvent.getAction()) {
-//                    manageToolbarSelected(mAre);
+//            public void onGlobalLayout() {
+//                int heightDiff = mAreScrollView.getRootView().getHeight() - mAreScrollView.getHeight();
+//                if (heightDiff > dpToPx(mActivityContext, 200)) { // if more than 200 dp, it's probably a keyboard...
+//                    mToolbar.setVisibility(View.GONE);
+//                } else {
+//                    mToolbar.setVisibility(View.VISIBLE);
+//                    touchEventListener.touchListener();
 //                }
-//                Log.d("TAG", "onTouch: " + mAre.isSelected() + "   " + mAre.getSelectionStart() + "   " + mAre.getSelectionEnd());
-//                return false;
 //            }
 //        });
-        LayoutParams editTextLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, height);
-        mAreScrollView.addView(mAre, editTextLayoutParams);
-        mAre.setOnFocusChangeListener(new OnFocusChangeListener() {
+
+        mAre.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    Log.d(TAG, "onFocusChange: "+ hasFocus);
-                } else {
-                    Log.d(TAG, "onFocusChange: "+ hasFocus);
-                }
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (onEditChangeListener!=null)onEditChangeListener.onEditTextChange(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
             }
         });
         this.mToolbar.setEditText(mAre);
-
         if (mExpandMode == ExpandMode.FULL) {
             mAreScrollView.setBackgroundColor(Color.WHITE);
         }
-
         this.addView(mAreScrollView);
     }
 
-    private void manageToolbarSelected(final AREditText mAre) {
-//        Log.d("TAG", "manageToolbarSelected: "+mAre.hasSelection());
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (mAre.hasSelection()){
-                    mToolbar.setVisibility(View.VISIBLE);
-                } else {
-                    mToolbar.setVisibility(View.GONE);
-                }
-                Log.d("TAG", "run: "+mAre.hasSelection());
-            }
-        },200);
-
+    public static float dpToPx(Context context, float valueInDp) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, valueInDp, metrics);
     }
 
     private void doLayout() {
@@ -299,7 +304,7 @@ public class AREditor extends RelativeLayout {
         } else {
             // Toolbar is up, so EditText is below
             // EditText is below
-           addToolbar(false, -1, false);
+            addToolbar(false, -1, false);
             addEditText(true, mToolbar.getId());
         }
     }
@@ -392,14 +397,12 @@ public class AREditor extends RelativeLayout {
     public void setImageStrategy(ImageStrategy imageStrategy) {
         this.mAre.setImageStrategy(imageStrategy);
     }
-    public static void hideKeyboard(Activity activity) {
-        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
-        //Find the currently focused view, so we can grab the correct window token from it.
-        View view = activity.getCurrentFocus();
-        //If no view currently has focus, create a new one, just so we can grab a window token from it
-        if (view == null) {
-            view = new View(activity);
-        }
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    public interface TouchEventListener {
+        void touchListener();
     }
+
+    public interface onEditChangeListener{
+        void onEditTextChange(String textValue);
+    }
+
 }

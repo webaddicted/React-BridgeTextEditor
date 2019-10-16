@@ -6,7 +6,6 @@ import com.chinalwb.are.styles.toolbar.ARE_Toolbar;
 import android.content.Context;
 import android.text.Editable;
 import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.widget.EditText;
 

@@ -8,7 +8,6 @@ import android.text.Spanned;
 import android.widget.ImageView;
 
 import com.chinalwb.are.AREditText;
-import com.chinalwb.are.Util;
 import com.chinalwb.are.activities.Are_AtPickerActivity;
 import com.chinalwb.are.models.AtItem;
 import com.chinalwb.are.spans.AreAtSpan;

@@ -6,6 +6,7 @@ import android.text.Spannable;
 import android.text.Spanned;
 import android.text.style.AlignmentSpan;
 import android.text.style.AlignmentSpan.Standard;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -28,31 +29,37 @@ public class ARE_Alignment extends ARE_ABS_FreeStyle {
 
 	@Override
 	public void setListenerForImageView(ImageView imageView) {
-		imageView.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				EditText editText = getEditText();
-				int currentLine = Util.getCurrentCursorLine(editText);
-				int start = Util.getThisLineStart(editText, currentLine);
-				int end = Util.getThisLineEnd(editText, currentLine);
-				
-				Editable editable = editText.getEditableText();
-				
-				Standard[] alignmentSpans = editable.getSpans(start, end, Standard.class);
-				if (null != alignmentSpans) {
-					for (Standard span : alignmentSpans) {
-						editable.removeSpan(span);
+	  	try {
+			imageView.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					EditText editText = getEditText();
+					int currentLine = Util.getCurrentCursorLine(editText);
+//				int start = Util.getThisLineStart(editText, currentLine);
+//				int end = Util.getThisLineEnd(editText, currentLine);
+					int start = editText.getSelectionStart();//Util.getThisLineStart(editText, currentLine);
+					int end = editText.getSelectionEnd();//Util.getThisLineEnd(editText, currentLine);
+
+					Editable editable = editText.getEditableText();
+
+					Standard[] alignmentSpans = editable.getSpans(start, end, Standard.class);
+					if (null != alignmentSpans) {
+						for (Standard span : alignmentSpans) {
+							editable.removeSpan(span);
+						}
 					}
+
+					AlignmentSpan alignCenterSpan = new Standard(mAlignment);
+					if (start == end) {
+						editable.insert(start, Constants.ZERO_WIDTH_SPACE_STR);
+						end = Util.getThisLineEnd(editText, currentLine);
+					}
+					editable.setSpan(alignCenterSpan, start, end, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 				}
-				
-				AlignmentSpan alignCenterSpan = new Standard(mAlignment);
-				if (start == end) {
-					editable.insert(start, Constants.ZERO_WIDTH_SPACE_STR);
-					end = Util.getThisLineEnd(editText, currentLine);
-				}
-				editable.setSpan(alignCenterSpan, start, end, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-			}
-		});
+			});
+		}catch (Exception exp){
+			Log.d("TAG", "setListenerForImageView: "+exp);
+		}
 	}
 
 	@Override
@@ -68,9 +75,7 @@ public class ARE_Alignment extends ARE_ABS_FreeStyle {
 		}
 
 		if (end > start) {
-			//
 			// User inputs
-			//
 			// To handle the \n case
 			char c = editable.charAt(end - 1);
 			if (c == Constants.CHAR_NEW_LINE) {

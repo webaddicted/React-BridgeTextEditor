@@ -27,11 +27,12 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="45dp">
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
                 android:background="?attr/colorPrimary"
                 android:orientation="horizontal">
 
@@ -39,21 +40,28 @@
                 <ImageView
                     android:id="@+id/rteBold"
                     android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="2dp"
                     android:padding="5dp"
                     android:src="@drawable/bold" />
 
                 <ImageView
                     android:id="@+id/rteItalic"
                     android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
                     android:padding="5dp"
                     android:src="@drawable/italic" />
 
                 <ImageView
                     android:id="@+id/rteUnderline"
                     android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
                     android:padding="5dp"
                     android:src="@drawable/underline" />
 
@@ -61,29 +69,38 @@
                 <ImageView
                     android:id="@+id/rteAlignLeft"
                     android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
                     android:padding="5dp"
                     android:src="@drawable/alignleft" />
 
                 <ImageView
                     android:id="@+id/rteAlignCenter"
                     android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
                     android:padding="5dp"
                     android:src="@drawable/aligncenter" />
 
                 <ImageView
                     android:id="@+id/rteAlignRight"
                     android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
                     android:padding="5dp"
                     android:src="@drawable/alignright" />
 
                 <LinearLayout
-                  android:id="@+id/linearText"
+                    android:id="@+id/linearText"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_marginRight="2dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -92,11 +109,11 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:padding="5dp"
                         android:text="Font Size"
                         android:textColor="#000000" />
 
                     <ImageView
-                        android:id="@+id/rteFontsize"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:padding="5dp"
@@ -249,9 +266,11 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:layout_gravity="end|center_vertical"
+                android:layout_marginRight="8dp"
+                android:padding="5dp"
                 android:gravity="end|center_vertical"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
                 android:text="Done"
                 android:textColor="#000000"
                 android:textSize="18sp" />

@@ -14,7 +14,6 @@ import com.chinalwb.are.Util;
 import com.chinalwb.are.activities.Are_VideoPlayerActivity;
 import com.chinalwb.are.strategies.VideoStrategy;
 import com.chinalwb.are.styles.IARE_Style;
-import com.chinalwb.are.styles.toolbar.ARE_Toolbar;
 import com.chinalwb.are.styles.toolitems.styles.ARE_Style_Video;
 
 /**

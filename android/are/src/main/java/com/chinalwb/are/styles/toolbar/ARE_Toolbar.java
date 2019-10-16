@@ -17,7 +17,6 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.chinalwb.are.AREditText;
@@ -57,7 +56,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ARE_Toolbar extends LinearLayout {
-
 
     private ARE_Toolbar.DoneListener mDoneListener;
 
@@ -228,7 +226,7 @@ public class ARE_Toolbar extends LinearLayout {
      * Absolute font size button.
      */
     private LinearLayout linearText;
-    private ImageView mFontsizeImageView;
+//    private ImageView mFontsizeImageView;
 
     /**
      * Absolute font face button.
@@ -382,7 +380,7 @@ public class ARE_Toolbar extends LinearLayout {
 
         this.mEmojiImageView = this.findViewById(R.id.rteEmoji);
 
-        this.mFontsizeImageView = this.findViewById(R.id.rteFontsize);
+//        this.mFontsizeImageView = this.findViewById(R.id.rteFontsize);
         this.linearText = this.findViewById(R.id.linearText);
 
         this.mFontfaceImageView = this.findViewById(R.id.rteFontface);
@@ -439,8 +437,6 @@ public class ARE_Toolbar extends LinearLayout {
                 mDoneListener.doneClick();
             }
         });
-
-
     }
 
     /**
@@ -448,7 +444,7 @@ public class ARE_Toolbar extends LinearLayout {
      */
     private void initStyles() {
         this.mEmojiStyle = new ARE_Emoji(this.mEmojiImageView);
-        this.mFontsizeStyle = new ARE_FontSize(this.mFontsizeImageView);
+//        this.mFontsizeStyle = new ARE_FontSize(this.mFontsizeImageView);
         this.mFontsizeStyle = new ARE_FontSize(this.linearText);
         this.mFontfaceStyle = new ARE_Fontface(this.mFontfaceImageView);
         this.mBoldStyle = new ARE_Bold(this.mBoldImageView);
@@ -500,7 +496,6 @@ public class ARE_Toolbar extends LinearLayout {
         this.mStylesList.add(this.mAtStyle);
     }
 
-
     public static ARE_Toolbar getInstance() {
         return sInstance;
     }
@@ -509,9 +504,14 @@ public class ARE_Toolbar extends LinearLayout {
         this.mEditText = editText;
         bindToolbar();
     }
-
+    public void setToolbarEditText(AREditText editText) {
+        this.mEditText = editText;
+        this.mFontsizeStyle.setToolbarEditText(this.mEditText);
+        if (mFontsizeStyle!=null)mFontsizeStyle.setToolbarEditText(editText);
+    }
     private void bindToolbar() {
         this.mFontsizeStyle.setEditText(this.mEditText);
+
         this.mBoldStyle.setEditText(this.mEditText);
         this.mItalicStyle.setEditText(this.mEditText);
         this.mUnderlineStyle.setEditText(this.mEditText);

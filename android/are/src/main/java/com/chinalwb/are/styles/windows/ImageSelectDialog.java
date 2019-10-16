@@ -15,9 +15,7 @@ import android.widget.TextView;
 import com.chinalwb.are.R;
 import com.chinalwb.are.Util;
 import com.chinalwb.are.spans.AreImageSpan;
-import com.chinalwb.are.styles.ARE_Image;
 import com.chinalwb.are.styles.IARE_Image;
-import com.chinalwb.are.styles.toolbar.ARE_Toolbar;
 
 public class ImageSelectDialog {
 

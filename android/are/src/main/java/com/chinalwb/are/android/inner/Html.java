@@ -1695,11 +1695,11 @@ class HtmlToSpannedConverter implements ContentHandler {
      * @return
      */
     private static int getFontSize(String fontSizePx) {
+        try {
         int pxIndex = fontSizePx.indexOf("px");
         String fontSizeStr = fontSizePx.substring(0, pxIndex);
-        try {
             return Integer.parseInt(fontSizeStr);
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             return 18;
         }
     }

@@ -9,6 +9,7 @@ import android.widget.PopupWindow;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.chinalwb.are.AREditText;
 import com.chinalwb.are.R;
 import com.chinalwb.are.Util;
 
@@ -91,5 +92,6 @@ public class FontsizePickerWindow extends PopupWindow {
             mListener.onFontSizeChange(size);
         }
     }
-
+    public void setToolbarEditText(AREditText editText) {
+    }
 }

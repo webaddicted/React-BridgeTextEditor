@@ -1,20 +1,13 @@
 package com.chinalwb.are.styles;
 
-import android.graphics.Color;
 import android.text.Editable;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.style.AbsoluteSizeSpan;
 import android.text.style.ForegroundColorSpan;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.chinalwb.are.AREditText;
-import com.chinalwb.are.Constants;
 import com.chinalwb.are.Util;
 import com.chinalwb.are.spans.AreForegroundColorSpan;
 import com.chinalwb.are.styles.toolbar.ARE_Toolbar;
@@ -31,6 +24,7 @@ public class ARE_FontColor extends ARE_ABS_Dynamic_Style<AreForegroundColorSpan>
 	private ColorPickerListener mColorPickerListener = new ColorPickerListener() {
 		@Override
 		public void onPickColor(int color) {
+
 			mColor = color;
 			if (null != mEditText) {
 				Editable editable = mEditText.getEditableText();

@@ -14,11 +14,12 @@ import {
 } from 'react-native';
 import CustomTextEditor from './CustomTextEditor';
 import { DeviceEventEmitter } from 'react-native';
+import Dimensions from 'Dimensions';
 
 import CustomTextEditorAndroid from './CustomTextEditorAndroid';
 // const {RNTRichTextEditor} = NativeModules; 
 const { Helper } = NativeModules;
-
+const { width, height } = Dimensions.get('window');
 export default class App extends Component {
   constructor(props){
     super(props);
@@ -50,7 +51,7 @@ export default class App extends Component {
 
           </TouchableOpacity>
         
-          <CustomTextEditor style={{ height: 400, width: 600 }} />
+          <CustomTextEditor style={{ height: 150, width: width }} />
         </KeyboardAvoidingView>
       </SafeAreaView>
     );

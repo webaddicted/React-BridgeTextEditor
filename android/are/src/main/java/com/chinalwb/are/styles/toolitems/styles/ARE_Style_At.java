@@ -13,7 +13,6 @@ import com.chinalwb.are.models.AtItem;
 import com.chinalwb.are.spans.AreAtSpan;
 import com.chinalwb.are.strategies.AtStrategy;
 import com.chinalwb.are.styles.ARE_ABS_FreeStyle;
-import com.chinalwb.are.styles.toolbar.ARE_Toolbar;
 
 public class ARE_Style_At extends ARE_ABS_FreeStyle {
 
