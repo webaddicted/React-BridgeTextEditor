@@ -1,0 +1,4 @@
+#Tue Aug 06 15:27:04 IST 2019
+base.0=/Users/geetika-bisht/Documents/Archive (1)/android/app/build/intermediates/transforms/dexMerger/debug/5
+path.0=classes.dex
+renamed.0=classes.dex

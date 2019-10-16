@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\assets"><file name="fonts/walkway.ttf" path="D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\assets\fonts\walkway.ttf"/></source><source path="D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\debug\assets"/></dataSet></merger>

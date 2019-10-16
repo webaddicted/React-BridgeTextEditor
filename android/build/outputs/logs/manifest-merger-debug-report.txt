@@ -1,0 +1,71 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:2:1-23:12
+	package
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:3:5-31
+		INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml
+		INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:2:1-23:12
+		INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:2:1-23:12
+		INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:5:5-21:19
+activity#com.chinalwb.are.activities.Are_VideoPlayerActivity
+ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:6:9-10:54
+	android:label
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:9:13-69
+	android:configChanges
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:8:13-74
+	android:theme
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:10:13-51
+	android:name
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:7:13-63
+activity#com.chinalwb.are.activities.Are_AtPickerActivity
+ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:11:9-14:47
+	android:configChanges
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:13:13-74
+	android:theme
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:14:13-44
+	android:name
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:12:13-60
+activity#com.chinalwb.are.strategies.defaults.DefaultProfileActivity
+ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:15:9-80
+	android:name
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:15:19-77
+activity#com.chinalwb.are.strategies.defaults.DefaultImagePreviewActivity
+ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:16:9-20:63
+	android:label
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:19:13-73
+	android:configChanges
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:18:13-74
+	android:theme
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:20:13-51
+	android:name
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml:17:13-76
+uses-sdk
+INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml
+INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml
+INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml
+INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml
+		INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml
+		ADDED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml
+		INJECTED from D:\Demo_Project\Android-Rich-text-Editor-master\ARE\are\src\main\AndroidManifest.xml

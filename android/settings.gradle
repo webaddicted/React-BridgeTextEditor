@@ -1,0 +1,3 @@
+rootProject.name = 'BridgeTest'
+
+include ':app', ':are'
