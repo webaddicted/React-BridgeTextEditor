@@ -43,6 +43,7 @@ export default class App extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
+        <View style={{ flex:1,backgroundColor:'blue' }}>
         <KeyboardAvoidingView behavior="padding" >
           <TouchableOpacity onPress={this.customKeyboard} style={{ color: 'black' }}>
             <Text>
@@ -53,6 +54,7 @@ export default class App extends Component {
         
           <CustomTextEditor style={{ height: 150, width: width }} />
         </KeyboardAvoidingView>
+        </View>
       </SafeAreaView>
     );
   }

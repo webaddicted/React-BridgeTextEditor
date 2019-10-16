@@ -96,15 +96,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/text/InputType.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="29" column="42" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bridgetest/MainApplication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="419">
@@ -139,10 +130,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/are/src/main/java/com/chinalwb/are/AREditText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-428">
+            <state relative-caret-position="175">
               <caret line="464" column="6" lean-forward="true" selection-start-line="464" selection-start-column="6" selection-end-line="464" selection-end-column="6" />
               <folding>
                 <element signature="e#4432#4489#0" />
@@ -152,6 +143,11 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../TextEditor.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -336,6 +332,7 @@
   <component name="PropertiesComponent">
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="2e0a9aab" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2019-10-16T09:34:22.615Z" />
+    <property name="ScreenshotViewer.SavePath" value="$PROJECT_DIR$/.." />
     <property name="adb_path" value="$USER_HOME$/Library/Android/sdk/platform-tools/adb" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="device.picker.selection" value="10.11.5.112:5555" />
@@ -489,10 +486,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.33459213" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.33459213" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -501,13 +497,13 @@
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Run" order="0" />
-      <window_info anchor="bottom" id="Logcat" order="1" weight="0.11891118" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="1" visible="true" weight="0.5730659" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.09756097" />
       <window_info anchor="bottom" id="Terminal" order="4" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.1260745" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.1260745" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="bottom" id="Find" order="9" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
@@ -828,7 +824,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/are/src/main/java/com/chinalwb/are/AREditText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-428">
+        <state relative-caret-position="175">
           <caret line="464" column="6" lean-forward="true" selection-start-line="464" selection-start-column="6" selection-end-line="464" selection-end-column="6" />
           <folding>
             <element signature="e#4432#4489#0" />
@@ -838,6 +834,9 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../TextEditor.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
   <component name="masterDetails">
